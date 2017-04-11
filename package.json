@@ -1,0 +1,17 @@
+{
+  "name": "translate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "superagent": "~3.5.2",
+    "request": "~2.81.0",
+    "async": "~2.2.0",
+    "fs": "~0.0.1-security"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HY",
+  "license": "ISC"
+}

@@ -32,6 +32,7 @@ t.translate("BaiDu", "happy", function(transTextList){
 });
 ```
 
-
+#注
+一次性翻译小于等于1000词为佳。
 
 

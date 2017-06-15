@@ -1,5 +1,5 @@
 /**
- * Created by HY on 2017/3/30.
+ * Created by HY on 2017/2/30.
  */
 
 //i.e. node translateAPI.js BaiDu sampleENG.json sampleCNSBaidu.json

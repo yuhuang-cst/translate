@@ -33,7 +33,7 @@ var transform = function(resultObj, sourceText){
       return item.trans;
     });
   } catch (e) {}
-  return transTextList && (transTextList.length > 0)? transTextList : [sourceText];
+  return transTextList && (transTextList.length > 0)? [transTextList.join("")] : [sourceText];
 };
 
 exports.translate = translate;

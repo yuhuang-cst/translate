@@ -19,8 +19,10 @@ var translate = function(text, callback){
       dt: ['t', 'bd']
     })
     .end(function(err, res){
-      if (err)
-        callback(text);
+      if (err){
+        callback([text]);
+      }
+
       else
         callback(transform(res, text));
     })

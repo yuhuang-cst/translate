@@ -25,7 +25,7 @@ var translate = function(apiName, text, callback){
 
 exports.translate = translate;
 
-// translate("GoogleCN", "happy; Hypoacuses", function(transTextList){
+// translate("GoogleCN", "happy", function(transTextList){
 //   console.log(transTextList);
 // });
 

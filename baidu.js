@@ -25,7 +25,7 @@ var translate = function(text, callback){
     })
     .end(function(err, res){
       if (err)
-        callback(text);
+        callback([text]);
       else
         callback(transform(res, text));
     })

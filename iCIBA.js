@@ -10,7 +10,7 @@ var translate = function(text, callback){
     .get("http://www.iciba.com/" + text)
     .end(function(err, res){
       if (err)
-        callback(text);
+        callback([text]);
       else
         callback(transform(res, text));
     })

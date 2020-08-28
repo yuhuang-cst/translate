@@ -11,7 +11,7 @@ npm install
 
 # translateAPI.js使用示例
 ```
-node translateAPI.js BaiDu sampleENG.json sampleCNS.json
+node translateAPI.js BaiDu sampleENG.json sampleCNS.json 100
 ```
 
 其中，`BaiDu`为API名，`sampleENG.json`为待翻译的英文单词列表，内容如下：
@@ -22,7 +22,7 @@ node translateAPI.js BaiDu sampleENG.json sampleCNS.json
   "sad"
 ]
 ```
-`sampleCNS.json`指定程序的输出文件名，内容为程序翻译的中文单词列表
+`sampleCNS.json`指定程序的输出文件名，内容为程序翻译的中文单词列表；100为并发访问数限制
 
 # translate.js使用示例
 ```

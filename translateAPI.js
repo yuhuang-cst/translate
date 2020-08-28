@@ -2,15 +2,15 @@
  * Created by HY on 2017/2/30.
  */
 
-//i.e. node translateAPI.js BaiDu sampleENG.json sampleCNSBaidu.json
-//i.e. node translateAPI.js GoogleCN sampleENG.json sampleCNSGoogleCN.json
-//i.e. node translateAPI.js iCIBA sampleENG.json sampleCNSICIBA.json
+//i.e. node translateAPI.js BaiDu sampleENG.json sampleCNSBaidu.json 100
+//i.e. node translateAPI.js GoogleCN sampleENG.json sampleCNSGoogleCN.json 100
+//i.e. node translateAPI.js iCIBA sampleENG.json sampleCNSICIBA.json 100
 
 var transEngine = require('./translate.js');
 var async = require("async");
 var fs = require('fs');
 
-var transMany = function(apiName, textList, callback){
+var transMany = function(apiName, textList, threadNum, callback){
   var getFunc = function (apiName, text) {
     return function(innerDone){
       transEngine.translate(apiName, text, function(transTextList){
@@ -24,7 +24,7 @@ var transMany = function(apiName, textList, callback){
 
   async.parallelLimit(
     funcList,
-    100,    //并发数限制
+    threadNum,    //并发数限制
     function(err, results){
       if (err)
         console.log('error:', err);
@@ -32,9 +32,9 @@ var transMany = function(apiName, textList, callback){
     });
 };
 
-var transFileParallel = function(apiName, inputFile, outputFile){
+var transFileParallel = function(apiName, inputFile, outputFile, threadNum){
   var textList = JSON.parse(fs.readFileSync(inputFile));
-  transMany(apiName, textList, function(results){
+  transMany(apiName, textList, threadNum, function(results){
     fs.writeFileSync(outputFile, JSON.stringify(results, null, 2));
   });
 };
@@ -42,8 +42,9 @@ var transFileParallel = function(apiName, inputFile, outputFile){
 var apiName = process.argv[2] || 'GoogleCN';
 var inputFile = process.argv[3] || 'source.json';
 var outputFile = process.argv[4] || 'result.json';
+var threadNum = Number(process.argv[5] || '100');
 
-transFileParallel(apiName, inputFile, outputFile);
+transFileParallel(apiName, inputFile, outputFile, threadNum);
 
 
 

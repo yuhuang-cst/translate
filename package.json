@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "superagent": "~3.5.2",
+    "superagent": "~6.0.0",
     "request": "~2.81.0",
     "async": "~2.2.0",
     "fs": "~0.0.1-security"
